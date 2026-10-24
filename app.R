@@ -1,13 +1,13 @@
 library(shiny)
 
-ui <- navbarPage("Production Planning",
+ui <- navbarPage("Production Planning - Group 17",
   tabPanel("Learning Curve", learning_ui("learning")),
-  tabPanel("Moving Average", ma_ui("ma"))
+  forecasting_ui("forecasting")
 )
 
 server <- function(input, output, session) {
   learning_server("learning")
-  ma_server("ma")
+  forecasting_server("forecasting")
 }
 
 shinyApp(ui, server)
