@@ -1,3 +1,6 @@
+# This assignment (3) is made by Koray Örnek, student number: 21831457
+# Also additions to app.R related with this part is also made by Koray Örnek
+
 # R/aggregate_planning.R
 
 # UI panel for processing aggregate execution strategies and disaggregation rules
