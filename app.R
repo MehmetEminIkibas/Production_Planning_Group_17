@@ -7,7 +7,7 @@ source("R/aggregate_planning.R")
 ui <- navbarPage("Production Planning - Group 17",
   tabPanel("Learning Curve", learning_ui("learning")),
   forecasting_ui("forecasting"),
-  # Appending your module panel to the master application menu
+                 
   aggregate_planning_ui("aggregate_planning")
 )
 
