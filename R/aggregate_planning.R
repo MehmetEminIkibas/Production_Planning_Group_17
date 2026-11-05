@@ -213,3 +213,39 @@ aggregate_planning_server <- function(id, shared_data) {
         check.names = FALSE
       )
     })
+        # Downstream disaggregation processor using square-root parameters ratio splitters
+output$disagg_table <- renderTable({
+res <- calculated_results()
+f_names <- strsplit(input$family_names, "[,; ]+")[[1]]
+f_demands <- as.numeric(strsplit(input$family_historical_demands, "[,; ]+")[[1]])
+if(length(f_names) != length(f_demands) || length(f_names) == 0) {
+return(data.frame(Error = "Check length alignment configuration metrics inside parameter variables."))
+}
+sq_demands <- sqrt(f_demands)
+allocation_weights <- sq_demands / sum(sq_demands)
+disagg_list <- list()
+for(k in 1:length(f_names)) {
+family_row <- c(f_names[k])
+for(p_idx in 1:nrow(res)) {
+total_prod <- res$Prod (Round Up)[p_idx]
+allocated_qty <- total_prod * allocation_weights[k]
+family_row <- c(family_row, round(allocated_qty, 1))
+}
+disagg_list[[k]] <- family_row
+}
+disagg_matrix <- do.call(rbind, disagg_list)
+disagg_df <- as.data.frame(disagg_matrix, stringsAsFactors = FALSE)
+colnames(disagg_df) <- c("Product Family", res$Period)
+return(disagg_df)
+})
+output$plan_table <- renderTable({ calculated_results() })
+output$cumulative_plot <- renderPlot({
+res <- calculated_results()
+plot(1:nrow(res), cumsum(res$Demand), type="b", col="black", pch=16,
+xlab="Operational Timeline Periods", ylab="Inventory Material Units", main="Cumulative Production Trajectory Tracking Strategy")
+lines(1:nrow(res), cumsum(res$Prod (Round Up)), type="b", col="red", pch=17)
+legend("topleft", legend=c("Cumulative Baseline Demand Volume", "Cumulative Production Volume (Realized)"),
+col=c("black","red"), lty=1, pch=c(16,17))
+})
+})
+}
