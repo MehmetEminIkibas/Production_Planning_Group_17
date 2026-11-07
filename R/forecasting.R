@@ -49,6 +49,8 @@ forecasting_server <- function(id) {
     fc_bj_server("bjma", data, "MA")
     fc_bj_server("arma", data, "ARMA")
     fc_bj_server("arima", data, "ARIMA")
+
+    return(data)
   })
 }
 
