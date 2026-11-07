@@ -168,7 +168,7 @@ aggregate_planning_server <- function(id, shared_data) {
           w_round[i] <- ceiling(custom_w[i])
           diff_r <- w_round[i] - prev_w_r
           if(diff_r > 0) h_round[i] <- diff_r else f_round[i] <- abs(diff_r)
-          p_round[i] * K * df$WorkingDays[i]
+          
           p_round[i] <- w_round[i] * K * df$WorkingDays[i]
           i_round[i] <- prev_i_r + p_round[i] - df$Demand[i]
           prev_w_r <- w_round[i]; prev_i_r <- i_round[i]
