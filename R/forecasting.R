@@ -9,28 +9,27 @@ library(readxl)
 
 forecasting_ui <- function(id) {
   ns <- NS(id)
-  navbarMenu(
+  tabPanel(
     "Forecasting",
-    tabPanel("Data", fc_data_ui(ns("data"))),
-    "----",
-    "Stationary series",
-    tabPanel("Moving Average", fc_ma_ui(ns("ma"))),
-    tabPanel("Weighted Moving Average", fc_wma_ui(ns("wma"))),
-    tabPanel("Simple Exponential Smoothing", fc_ses_ui(ns("ses"))),
-    tabPanel("Seasonal Factors (Quick and Dirty)", fc_sf_ui(ns("sf"))),
-    "----",
-    "Trend series",
-    tabPanel("Holt's Method", fc_holt_ui(ns("holt"))),
-    "----",
-    "Seasonal series",
-    tabPanel("Seasonal Decomposition", fc_decomp_ui(ns("decomp"))),
-    tabPanel("Winters' Method", fc_winters_ui(ns("winters"))),
-    "----",
-    "Box-Jenkins",
-    tabPanel("AR", fc_bj_ui(ns("ar"), "AR")),
-    tabPanel("MA", fc_bj_ui(ns("bjma"), "MA")),
-    tabPanel("ARMA", fc_bj_ui(ns("arma"), "ARMA")),
-    tabPanel("ARIMA", fc_bj_ui(ns("arima"), "ARIMA"))
+    section_tabs(
+      ns("page"),
+      tabPanel("Data", fc_data_ui(ns("data"))),
+      "Stationary series",
+      tabPanel("Moving Average", fc_ma_ui(ns("ma"))),
+      tabPanel("Weighted Moving Average", fc_wma_ui(ns("wma"))),
+      tabPanel("Simple Exponential Smoothing", fc_ses_ui(ns("ses"))),
+      tabPanel("Seasonal Factors (Quick and Dirty)", fc_sf_ui(ns("sf"))),
+      "Trend series",
+      tabPanel("Holt's Method", fc_holt_ui(ns("holt"))),
+      "Seasonal series",
+      tabPanel("Seasonal Decomposition", fc_decomp_ui(ns("decomp"))),
+      tabPanel("Winters' Method", fc_winters_ui(ns("winters"))),
+      "Box-Jenkins",
+      tabPanel("AR", fc_bj_ui(ns("ar"), "AR")),
+      tabPanel("MA", fc_bj_ui(ns("bjma"), "MA")),
+      tabPanel("ARMA", fc_bj_ui(ns("arma"), "ARMA")),
+      tabPanel("ARIMA", fc_bj_ui(ns("arima"), "ARIMA"))
+    )
   )
 }
 

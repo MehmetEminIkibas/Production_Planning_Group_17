@@ -1353,7 +1353,7 @@
   },
   "files": {
     "app.R": {
-      "checksum": "7b2bb67759183101732bc16ab7c29b8b"
+      "checksum": "2327f22e276bf875d48dc8626d0655fd"
     },
     "R/aggregate_disagg.R": {
       "checksum": "7f056c1f7fe38fd8ee55abe7846872e0"
@@ -1365,7 +1365,7 @@
       "checksum": "f77a26b3e49d1d4d116767954e1b93e7"
     },
     "R/aggregate_planning.R": {
-      "checksum": "0479cf110bbf3db1fbf08ad0bcfb8dac"
+      "checksum": "7b1d8a9ac8a36b6e9879e09d75feb5ce"
     },
     "R/aggregate_transport.R": {
       "checksum": "120a6508f7e4e664f383be9fd9a496f8"
@@ -1383,10 +1383,13 @@
       "checksum": "f0b08d58cd96c1a4478323db7294f9e8"
     },
     "R/forecasting.R": {
-      "checksum": "048c85dff44aed3f766a7c118254792f"
+      "checksum": "d87e985f251ca2d29f8986090b21bfcb"
     },
     "R/learning_curve.R": {
       "checksum": "5e14fb9c8a752c0b06caebc0bb857fba"
+    },
+    "R/section_nav.R": {
+      "checksum": "633b16af18e48755a902c8c20aca4535"
     },
     "README.md": {
       "checksum": "a43a55b15f1520938ada9d40593bcd64"
