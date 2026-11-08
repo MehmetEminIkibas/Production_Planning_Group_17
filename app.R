@@ -3,7 +3,6 @@ library(readxl)
 
 # Load the module files from the R folder
 
-source("R/section_nav.R", local = TRUE)
 source("R/learning_curve.R", local = TRUE)
 source("R/forecasting.R", local = TRUE)
 source("R/forecasting_stationary.R", local = TRUE)
@@ -18,16 +17,14 @@ source("R/aggregate_disagg.R", local = TRUE)
 
 ui <- navbarPage(
   title = "Production Planning & Forecasting System - Group 17",
-  id = "section",
-  header = section_nav_assets(),
 
   # 1. Learning curve
   tabPanel("Learning Curve", learning_ui("learning")),
 
-  # 2. Forecasting (Data page and methods, one click apart)
+  # 2. Forecasting menu (includes the Data page)
   forecasting_ui("forecasting"),
 
-  # 3. Aggregate planning (Data & Costs page and methods)
+  # 3. Aggregate planning menu (includes its own Data & Costs page)
   aggregate_planning_ui("aggregate")
 )
 

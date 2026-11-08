@@ -13,21 +13,21 @@ library(readxl)
 
 aggregate_planning_ui <- function(id) {
   ns <- NS(id)
-  tabPanel(
+  navbarMenu(
     "Aggregate Planning",
-    section_tabs(
-      ns("page"),
-      tabPanel("Data & Costs", ap_data_ui(ns("data"))),
-      "Heuristic plans",
-      tabPanel("Chase Plan", ap_chase_ui(ns("chase"))),
-      tabPanel("Level Plan", ap_level_ui(ns("level"))),
-      tabPanel("Mixed Plan", ap_mixed_ui(ns("mixed"))),
-      "Optimization",
-      tabPanel("Linear Programming", ap_lp_ui(ns("lp"))),
-      tabPanel("Transportation", ap_tr_ui(ns("tr"))),
-      "Disaggregation",
-      tabPanel("Square-Root Rule", ap_disagg_ui(ns("disagg")))
-    )
+    tabPanel("Data & Costs", ap_data_ui(ns("data"))),
+    "----",
+    "Heuristic plans",
+    tabPanel("Zero-Inventory (Chase) Plan", ap_chase_ui(ns("chase"))),
+    tabPanel("Constant Workforce (Level) Plan", ap_level_ui(ns("level"))),
+    tabPanel("Mixed Plan", ap_mixed_ui(ns("mixed"))),
+    "----",
+    "Optimization",
+    tabPanel("Linear Programming", ap_lp_ui(ns("lp"))),
+    tabPanel("Transportation Method", ap_tr_ui(ns("tr"))),
+    "----",
+    "Disaggregation",
+    tabPanel("Disaggregation (Square-Root Rule)", ap_disagg_ui(ns("disagg")))
   )
 }
 
