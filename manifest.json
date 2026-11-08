@@ -1353,7 +1353,22 @@
   },
   "files": {
     "app.R": {
-      "checksum": "7b47f6e3b353396cbf51bdc91b3b2366"
+      "checksum": "7b2bb67759183101732bc16ab7c29b8b"
+    },
+    "R/aggregate_disagg.R": {
+      "checksum": "7f056c1f7fe38fd8ee55abe7846872e0"
+    },
+    "R/aggregate_heuristics.R": {
+      "checksum": "66682ea4f3e7ab28c95f36b16c9d4748"
+    },
+    "R/aggregate_lp.R": {
+      "checksum": "f77a26b3e49d1d4d116767954e1b93e7"
+    },
+    "R/aggregate_planning.R": {
+      "checksum": "0479cf110bbf3db1fbf08ad0bcfb8dac"
+    },
+    "R/aggregate_transport.R": {
+      "checksum": "120a6508f7e4e664f383be9fd9a496f8"
     },
     "R/forecasting_boxjenkins.R": {
       "checksum": "94243559e6495a47a6a1cad1c06b7a94"
@@ -1368,22 +1383,25 @@
       "checksum": "f0b08d58cd96c1a4478323db7294f9e8"
     },
     "R/forecasting.R": {
-      "checksum": "fa957f11669a63c8d598b7253d3ee934"
+      "checksum": "048c85dff44aed3f766a7c118254792f"
     },
-    "R/ogrenme.R": {
-      "checksum": "35bda2645ebe1cf1807519a20174d054"
+    "R/learning_curve.R": {
+      "checksum": "5e14fb9c8a752c0b06caebc0bb857fba"
     },
     "README.md": {
       "checksum": "a43a55b15f1520938ada9d40593bcd64"
     },
-    "Sample/veri_mevsimsel.xlsx": {
-      "checksum": "760173a3e02fb8ff28c8d9d1bab90eab"
+    "Sample/aggregate_demand.csv": {
+      "checksum": "8a16393d8d75a554586bc0805b96c0ad"
     },
-    "Sample/veri_sabit.csv": {
-      "checksum": "ab1daa44d2c46e72988c3c74beb9a494"
+    "Sample/seasonal.xlsx": {
+      "checksum": "c26b5fbd2344d3c2e728f32c262bf938"
     },
-    "Sample/veri_trend.csv": {
-      "checksum": "2fbdd33a45de077039b3ee9fd03a0edf"
+    "Sample/stationary.csv": {
+      "checksum": "7c225501014cd7748e488b0964ed57a9"
+    },
+    "Sample/trend.csv": {
+      "checksum": "d6c9fc20c4b337ea2b0dc1dbd301d536"
     }
   },
   "users": null

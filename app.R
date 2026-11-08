@@ -1,38 +1,37 @@
 library(shiny)
 library(readxl)
 
-# Diğer R dosyalarının uygulamaya dahil edilmesi (Source işlemi)
+# Load the module files from the R folder
 
-source("R/ogrenme.R", local = TRUE)
+source("R/learning_curve.R", local = TRUE)
 source("R/forecasting.R", local = TRUE)
 source("R/forecasting_stationary.R", local = TRUE)
 source("R/forecasting_trend.R", local = TRUE)
 source("R/forecasting_seasonal.R", local = TRUE)
 source("R/forecasting_boxjenkins.R", local = TRUE)
 source("R/aggregate_planning.R", local = TRUE)
+source("R/aggregate_heuristics.R", local = TRUE)
+source("R/aggregate_lp.R", local = TRUE)
+source("R/aggregate_transport.R", local = TRUE)
+source("R/aggregate_disagg.R", local = TRUE)
 
 ui <- navbarPage(
   title = "Production Planning & Forecasting System - Group 17",
-  
-  # 1. Sekme: Öğrenme Eğrisi
+
+  # 1. Learning curve
   tabPanel("Learning Curve", learning_ui("learning")),
-  
-  # 2. Sekme Grubu: Tahmin Modülleri (Data alt sekmesini içerir)
+
+  # 2. Forecasting menu (includes the Data page)
   forecasting_ui("forecasting"),
-  
-  # 3. Sekme: Üretim Planlama ve Ayrıştırma (Eksik olan kısım eklendi)
+
+  # 3. Aggregate planning menu (includes its own Data & Costs page)
   aggregate_planning_ui("aggregate")
 )
 
 server <- function(input, output, session) {
-  # Modüllerin çalıştırılması
   learning_server("learning")
-  
-  # Forecasting modülü çağrılır ve ürettiği reaktif veri nesnesi saklanır
-  shared_demand_data <- forecasting_server("forecasting")
-  
-  # Üretim planlama modülüne tahmin/veri sayfasından gelen reaktif veri bağlanır
-  aggregate_planning_server("aggregate", shared_data = shared_demand_data)
+  forecasting_server("forecasting")
+  aggregate_planning_server("aggregate")
 }
 
 shinyApp(ui, server)
